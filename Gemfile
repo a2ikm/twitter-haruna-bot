@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "rake"
 
-gem "lita"
+gem "lita", github: "jimmycuadra/lita"
 gem "lita-twitter"
 gem "twitter"
 
