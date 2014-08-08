@@ -33,6 +33,8 @@ module Lita
       end
 
       on :sleepy do |payload|
+        return unless rand(2) == 0
+
         target = Source.new(room: payload[:room])
         messages = [
           "榛名、待機命令…了解です…。",
