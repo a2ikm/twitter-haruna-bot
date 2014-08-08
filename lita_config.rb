@@ -3,6 +3,9 @@ if ENV['RACK_ENV'] !='production'
   Dotenv.load
 end
 
+require "active_support/core_ext"
+Time.zone = "Asia/Tokyo"
+
 Dir[File.expand_path("../extensions/*.rb", __FILE__)].each do |file|
   require file
 end
@@ -28,6 +31,7 @@ Lita.configure do |config|
   config.adapter.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
 
   config.handlers.left.room            = 1
+  config.handlers.left.clock_at        = "0 * * * * Asia/Tokyo"
   config.handlers.left.night_battle_at = "0 0 * * * Asia/Tokyo"
   config.handlers.left.sleepy_at       = "0 #{1.upto(23).to_a.join(",")} * * * Asia/Tokyo"
 end

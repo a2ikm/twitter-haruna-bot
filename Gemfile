@@ -6,6 +6,7 @@ gem "lita", github: "jimmycuadra/lita"
 gem "lita-twitter"
 gem "twitter"
 gem "rufus-scheduler"
+gem "activesupport"
 
 gem "dotenv"
 
