@@ -11,7 +11,7 @@ module Lita
       def i_cant_understand(payload)
         message = payload[:message]
         return unless message.user.metadata["mention"]
-        message.reply "@#{message.user.name} すみません、なにをおっしゃってるかわかりません…。提督、大丈夫ですか…？"
+        message.reply_with_mention "すみません、なにをおっしゃってるかわかりません…。提督、大丈夫ですか…？"
       end
     end
 
