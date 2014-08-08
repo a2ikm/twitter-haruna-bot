@@ -6,7 +6,6 @@ module Lita
       def self.default_config(handler_config)
         handler_config.room             = nil
         handler_config.clock_at         = nil
-        handler_config.night_battle_at  = nil
         handler_config.sleepy_at        = nil
       end
       
@@ -18,12 +17,6 @@ module Lita
         if clock_at = config.clock_at
           @scheduler.cron clock_at do
             robot.trigger :clock, room: config.room
-          end
-        end
-
-        if night_battle_at = config.night_battle_at
-          @scheduler.cron night_battle_at do
-            robot.trigger :night_battle, room: config.room
           end
         end
 
@@ -64,11 +57,6 @@ module Lita
 
         target = Source.new(room: payload[:room])
         robot.send_message target, messages[Time.current.hour]
-      end
-
-      on :night_battle do |payload|
-        target = Source.new(room: payload[:room])
-        robot.send_message(target, "夜戦なの？腕がなるわね！")
       end
 
       on :sleepy do |payload|

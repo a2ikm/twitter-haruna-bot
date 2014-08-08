@@ -32,6 +32,5 @@ Lita.configure do |config|
 
   config.handlers.left.room            = 1
   config.handlers.left.clock_at        = "0 * * * * Asia/Tokyo"
-  config.handlers.left.night_battle_at = "0 0 * * * Asia/Tokyo"
   config.handlers.left.sleepy_at       = "0 #{1.upto(23).to_a.join(",")} * * * Asia/Tokyo"
 end
