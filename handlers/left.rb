@@ -55,8 +55,10 @@ module Lita
           "フタサンマルマル。提督、たまには、…早めにお休みください…ね？榛名のお願いです",
         ]
 
+        index = Time.now.getlocal("+09:00").hour
+
         target = Source.new(room: payload[:room])
-        robot.send_message target, messages[Time.now.hour]
+        robot.send_message target, messages[index]
       end
 
       on :sleepy do |payload|
