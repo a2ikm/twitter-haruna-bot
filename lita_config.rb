@@ -3,9 +3,6 @@ if ENV['RACK_ENV'] !='production'
   Dotenv.load
 end
 
-require "active_support/core_ext"
-Time.zone = "Asia/Tokyo"
-
 Dir[File.expand_path("../extensions/*.rb", __FILE__)].each do |file|
   require file
 end

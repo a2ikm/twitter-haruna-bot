@@ -56,7 +56,7 @@ module Lita
         ]
 
         target = Source.new(room: payload[:room])
-        robot.send_message target, messages[Time.current.hour]
+        robot.send_message target, messages[Time.now.hour]
       end
 
       on :sleepy do |payload|
